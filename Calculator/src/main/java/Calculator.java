@@ -381,9 +381,9 @@ public class Calculator {
         }
  }
 
-
+//Swing 是线程不安全的，必须在 事件调度线程 (EDT) 中创建和更新 GUI。如果你没有使用 SwingUtilities.invokeLater() 来启动 GUI 初始化，这可能导致界面加载缓慢或出现空白。
     public static void main(String[] args) {
-        new Calculator();
+       SwingUtilities.invokeLater(() -> new Calculator());
     }
 
 
